@@ -24,8 +24,15 @@ def any_to_string(value) -> str:
 
 
 def rolling(series: pd.Series, window: int):
-    results = []
+    last_n = []
+    last = []
+
     for i in range(len(series) - window):
         chunk = series.iloc[i : i + window].values
-        results.append(",".join(list(map(any_to_string, chunk))))
-    return pd.Series(results, index=range(window, len(series)))
+        last_n.append(",".join(list(map(any_to_string, chunk))))
+        last.append(chunk[-1] if len(chunk) > 0 else None)
+
+    return (
+        pd.Series(last_n, index=range(window, len(series))),
+        pd.Series(last, index=range(window, len(series))),
+    )
