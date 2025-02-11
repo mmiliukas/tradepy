@@ -20,7 +20,7 @@ def download_history(
     float_format="%.4f",
     transform: HistoryTransform = None,
 ) -> None:
-    with tempfile.TemporaryDirectory() as temp_dir:
+    with tempfile.TemporaryDirectory(delete=False) as temp_dir:
         # yfinance is using sqlite, and running it inside multiple processes at the same time
         # deadlocks it, so we need to use a different cache location for each process.
         yf.set_tz_cache_location(temp_dir)
