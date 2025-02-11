@@ -19,7 +19,7 @@ def download_history(
     to: str,
     float_format="%.4f",
     transform: HistoryTransform = None,
-) -> None:
+) -> int:
     with tempfile.TemporaryDirectory(delete=False) as temp_dir:
         # yfinance is using sqlite, and running it inside multiple processes at the same time
         # deadlocks it, so we need to use a different cache location for each process.
@@ -39,3 +39,5 @@ def download_history(
 
             file_name = os.path.join(to, f"{symbol}.csv")
             history.to_csv(file_name, float_format=float_format, index=False)
+
+    return len(symbols)
