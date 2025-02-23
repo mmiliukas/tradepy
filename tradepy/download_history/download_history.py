@@ -1,13 +1,13 @@
 import os
 import tempfile
-from typing import Callable
+from typing import Callable, Optional
 
 import pandas as pd
 import yfinance as yf
 
 from tradepy.download import download
 
-HistoryTransform = Callable[[pd.DataFrame], None]
+HistoryTransform = Optional[Callable[[pd.DataFrame], None]]
 
 
 def read_history(file_name: str) -> pd.DataFrame:
@@ -31,11 +31,8 @@ def download_history(
             if history.empty:
                 continue
 
-            history = history.reset_index(names=["Date"])
-            history["Date"] = history["Date"].dt.date
-            history["Symbol"] = symbol
-
-            transform(history) if transform else None
+            if transform:
+                transform(history)
 
             file_name = os.path.join(to, f"{symbol}.csv")
             history.to_csv(file_name, float_format=float_format, index=False)

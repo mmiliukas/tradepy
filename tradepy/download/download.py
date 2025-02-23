@@ -5,15 +5,15 @@ import yfinance as yf
 
 
 def download(
-    ticker: str,
+    symbol: str,
     start: str | date | None = None,
     end: str | date | None = None,
     interval="1d",
     period: str = "max",
     progress=False,
 ) -> pd.DataFrame:
-    history = yf.download(
-        ticker,
+    df = yf.download(
+        symbol,
         start=start,
         end=end,
         interval=interval,
@@ -22,4 +22,14 @@ def download(
         group_by="ticker",
         threads=False,
     )
-    return history[ticker]
+
+    if df is None or df.empty:
+        return pd.DataFrame()
+
+    result: pd.DataFrame = df[symbol]  # type: ignore
+    result = result.reset_index(names=["Date"])
+
+    result["Date"] = result["Date"].dt.date
+    result["Symbol"] = symbol
+
+    return result
