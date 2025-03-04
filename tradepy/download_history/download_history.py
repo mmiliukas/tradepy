@@ -7,7 +7,7 @@ import yfinance as yf
 
 from tradepy.download import download
 
-HistoryTransform = Optional[Callable[[pd.DataFrame], None]]
+HistoryTransform = Optional[Callable[[pd.DataFrame, str], None]]
 
 
 def read_history(file_name: str) -> pd.DataFrame:
@@ -32,7 +32,7 @@ def download_history(
                 continue
 
             if transform:
-                transform(history)
+                transform(history, symbol)
 
             file_name = os.path.join(to, f"{symbol}.csv")
             history.to_csv(file_name, float_format=float_format, index=False)
