@@ -21,7 +21,7 @@ def download(
         progress=progress,
         group_by="ticker",
         threads=False,
-        auto_adjust=True
+        auto_adjust=True,
     )
 
     if df is None or df.empty:

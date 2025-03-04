@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def download_tickers(
+def download_symbols(
     source: str = "https://raw.githubusercontent.com/mmiliukas/screeners/main/tickers.csv",
     exclude_exchange: list[str] = ["PNK"],
     include_screeners: list[str] = ["Winners 10"],
