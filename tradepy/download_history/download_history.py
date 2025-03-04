@@ -17,6 +17,7 @@ def read_history(file_name: str) -> pd.DataFrame:
 def download_history(
     symbols: list[str],
     to: str,
+    period: str = "max",
     float_format="%.4f",
     transform: HistoryTransform = None,
 ) -> int:
@@ -26,7 +27,7 @@ def download_history(
         yf.set_tz_cache_location(temp_dir)
 
         for symbol in symbols:
-            history = download(symbol)
+            history = download(symbol, period=period)
 
             if history.empty:
                 continue
