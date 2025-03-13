@@ -1,3 +1,5 @@
+alpaca-py==0.39.0
+annotated-types==0.7.0
 beautifulsoup4==4.13.3
 certifi==2025.1.31
 charset-normalizer==3.4.1
@@ -8,6 +10,7 @@ idna==3.10
 iniconfig==2.0.0
 korean-lunar-calendar==0.3.1
 lxml==5.3.1
+msgpack==1.1.0
 multitasking==0.0.11
 numpy==2.2.3
 packaging==24.2
@@ -16,6 +19,8 @@ pandas_market_calendars==4.6.1
 peewee==3.17.9
 platformdirs==4.3.6
 pluggy==1.5.0
+pydantic==2.10.6
+pydantic_core==2.27.2
 pyluach==2.2.0
 pytest==8.3.5
 python-dateutil==2.9.0.post0
@@ -23,10 +28,12 @@ pytz==2025.1
 requests==2.32.3
 six==1.17.0
 soupsieve==2.6
+sseclient-py==1.8.0
 toolz==1.0.0
 tqdm==4.67.1
 typing_extensions==4.12.2
 tzdata==2025.1
 urllib3==1.26.19
 webencodings==0.5.1
+websockets==15.0.1
 yfinance==0.2.54

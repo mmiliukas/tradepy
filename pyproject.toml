@@ -13,4 +13,5 @@ dependencies = [
     "pandas>=2.2.3",
     "yfinance>=0.2.54",
     "pandas_market_calendars>=4.6.1",
+    "alpaca-py>=0.39.0"
 ]
