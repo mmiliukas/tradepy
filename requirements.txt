@@ -7,7 +7,7 @@ exchange_calendars==4.9
 frozendict==2.4.6
 html5lib==1.1
 idna==3.10
-iniconfig==2.0.0
+iniconfig==2.1.0
 korean-lunar-calendar==0.3.1
 lxml==5.3.1
 msgpack==1.1.0
