@@ -21,6 +21,18 @@ class NyseCalendar:
         self.__market_open = row["market_open"].astimezone(self.__eastern)
         self.__market_close = row["market_close"].astimezone(self.__eastern)
 
+    def hours_passed(self):
+        result = self.time()
+        if result is None:
+            return -1
+        return result[0]
+
+    def hours_remaining(self):
+        result = self.time()
+        if result is None:
+            return -1
+        return result[1]
+
     def time(self):
         now = datetime.now(self.__eastern)
 
