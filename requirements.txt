@@ -1,4 +1,4 @@
-alpaca-py==0.39.4
+alpaca-py==0.40.0
 annotated-types==0.7.0
 beautifulsoup4==4.13.4
 certifi==2025.1.31
