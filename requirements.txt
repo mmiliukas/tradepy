@@ -1,7 +1,7 @@
 alpaca-py==0.40.0
 annotated-types==0.7.0
 beautifulsoup4==4.13.4
-certifi==2025.1.31
+certifi==2025.4.26
 charset-normalizer==3.4.2
 exchange_calendars==4.9
 frozendict==2.4.6
