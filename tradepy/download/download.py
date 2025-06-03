@@ -28,9 +28,13 @@ def download(
         return pd.DataFrame()
 
     result: pd.DataFrame = df[symbol]  # type: ignore
-    result = result.reset_index(names=["Date"])
+    if result.index.name == "Date":
+        result = result.reset_index(names=["Date"])
+        # result["Date"] = result["Date"].dt.date
+    else:
+        result = result.reset_index(names=["Datetime"])
+        # result["Datetime"] = result["Datetime"].dt.time
 
-    result["Date"] = result["Date"].dt.date
     result["Symbol"] = symbol
 
     return result
