@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-def tsl(df: pd.DataFrame, start_index: int) -> None:
+def tsl(df: pd.DataFrame, start_index: int, tslatr=-6, ttpatr=3) -> None:
     df["PC"] = df["Close"].shift(1)
     df["High-Low"] = df["High"] - df["Low"]
     df["High-PC"] = abs(df["High"] - df["PC"])
@@ -22,8 +22,8 @@ def tsl(df: pd.DataFrame, start_index: int) -> None:
             continue
         close = df.at[i, "Close"]
         high = df.at[i, "High"]
-        new_stop = close - 6 * atr
-        new_tp = close - 3 * atr  # high
+        new_stop = close + tslatr * atr
+        new_tp = close + ttpatr * atr  # high
         stop = max(stop, new_stop) if stop is not None else new_stop
         tp = max(tp, new_tp) if tp is not None else new_tp
         df.at[i, "RollingATRStop"] = stop
