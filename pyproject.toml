@@ -10,7 +10,7 @@ authors = []
 license = { text = "MIT" }
 readme = "README.md"
 dependencies = [
-    "pandas==2.2.2",
+    "pandas==2.3.1",
     "yfinance>=0.2.54",
     "pandas_market_calendars>=4.6.1",
     "alpaca-py>=0.39.0",
