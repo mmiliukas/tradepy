@@ -1,7 +1,7 @@
 alpaca-py==0.40.1
 annotated-types==0.7.0
 beautifulsoup4==4.13.4
-certifi==2025.4.26
+certifi==2025.8.3
 cffi==1.17.1
 charset-normalizer==3.4.2
 curl_cffi==0.12.0
